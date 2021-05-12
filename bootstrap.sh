@@ -3,14 +3,14 @@
 #actualizamos los paquetes de ubuntu
 apt-get update
 
-#instalo monitor de recursos
-apt-get install -y nmon
+#instalo monitor de recursos (no lo requiero)
+#apt-get install -y nmon
 
 #instalamos apache requerido por actividad
 sudo apt-get install -y apache2
 
-#instalo git en ubuntu
-sudo apt-get install -y git-all
+#instalo git en ubuntu trusty
+#sudo apt-get install -y git-all
 
 #ruta servidor web
 APACHE_ROOT="/var/www"

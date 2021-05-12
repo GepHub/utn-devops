@@ -12,8 +12,10 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/trusty64"
 
+  #trusdty me da errores, pruebo con bionic
+  #config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/bionic64"
 
 
   # Disable automatic box update checking. If you disable this, then
@@ -27,8 +29,13 @@ Vagrant.configure("2") do |config|
   # NOTE: This will enable public access to the opened port
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   
+  #apache
   config.vm.network "forwarded_port", guest: 80, host: 8080
-  
+  #mysql
+  config.vm.network "forwarded_port", guest: 3306, host: 4041
+  #tcp/udp
+  config.vm.network "forwarded_port", guest: 4567, host: 4567
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
   # via 127.0.0.1 to disable public access
@@ -44,10 +51,12 @@ Vagrant.configure("2") do |config|
   # your network.
   # config.vm.network "public_network"
 
-  config.vm.hostname = "utn-devops-ubuntu-trusty"
+  #config.vm.hostname = "utn-devops.ubuntu-trusty"
+  config.vm.hostname = "utn-devops.ubuntu-bionic"
   config.vm.provider "virtualbox" do |v|
-	v.name = "utn-devops-ubuntu-trusty"
-  end
+	#v.name = "utn-devops-ubuntu-trusty"
+  v.name = "utn-devops-ubuntu-bionic"  
+end
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
