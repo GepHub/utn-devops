@@ -44,9 +44,9 @@ Vagrant.configure("2") do |config|
   # your network.
   # config.vm.network "public_network"
 
-  config.vm.hostname = "utn-devops.local"
+  config.vm.hostname = "utn-devops-ubuntu-trusty"
   config.vm.provider "virtualbox" do |v|
-	v.name = "utn-devops-vagrant-ubuntu-trusty"
+	v.name = "utn-devops-ubuntu-trusty"
   end
 
   # Share an additional folder to the guest VM. The first argument is
@@ -54,6 +54,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder ".", "/vagrant"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -69,6 +70,10 @@ Vagrant.configure("2") do |config|
   #
   # View the documentation for the provider you are using for more
   # information on available options.
+
+  # Copia el archivo de configuración del servidor web
+  config.vm.provision "file", source: "configs/devops.site.conf", destination: "/tmp/devops.site.conf"
+  
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
