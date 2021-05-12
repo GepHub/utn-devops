@@ -9,10 +9,8 @@ apt-get install -y nmon
 #instalamos apache requerido por actividad
 sudo apt-get install -y apache2
 
-if ! [ -L /var/www ]; then
-rm -rf /var/www
-ln -fs /vagrant /var/www
-fi
+#instalo git en ubuntu
+sudo apt-get install -y git-all
 
 #ruta servidor web
 APACHE_ROOT="/var/www"
